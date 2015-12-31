@@ -1,0 +1,18 @@
+html{
+    height: auto;
+    background-color: #809ced;
+    margin: 10px;
+}
+body {
+    display: block;
+}
+/* æ–‡æ¡£ */
+.demoflow .laypage_next {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+    background-color: #eee;
+    color: #000;
+}
