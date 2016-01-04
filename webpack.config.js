@@ -2,13 +2,14 @@
  * Created by WangMing on 15/12/29.
  */
 var path = require('path');
+var os = require('os');
 var fs = require('fs');
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin"); //将组件中的样式乖乖提取出来
 var HtmlWebpackPlugin = require('html-webpack-plugin'); //html模板插入代码
 var glob = require('glob');
 //开发
-var cdnpath ='';
+var cdnpath = '';
 //部署
 //var cdnpath='//localhost:8081/';
 //webpck插件
@@ -28,22 +29,28 @@ var plugins = [
 ];
 var entries = {};
 
-var entryFiles = glob.sync('src/**/*.entry.js');
+var entryFiles = glob.sync('src/pages/**/*.entry.js');
 
 for (var i = 0; i < entryFiles.length; i++) {
   var filePath = entryFiles[i];
-  key = filePath.substring(filePath.lastIndexOf(path.sep) + 1, filePath.lastIndexOf('.entry'));
+  if (os.platform() === 'win32') {
+    key = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.entry'));
+  } else {
+    key = filePath.substring(filePath.lastIndexOf(path.sep) + 1, filePath.lastIndexOf('.entry'));
+  }
   entries[key] = [path.join(__dirname, filePath)];
 }
 for (var i in entries) {
   plugins.push(new HtmlWebpackPlugin({
-    title: "第一物流",
+    title: "webpack多页面应用",
     //template: 'src/' + i + '/' + i + '.tpl.html',
-    templateContent: (function (i) {
+    templateContent: (function(i) {
       var header = fs.readFileSync("./src/templates/header.html", "utf-8");
-      var content = fs.readFileSync('./src/' + i + '/' + i + '.tpl.html', "utf-8");
+      if (fs.existsSync('./src/pages/' + i + '/' + i + '.tpl.html')) {
+        var content = fs.readFileSync('./src/pages/' + i + '/' + i + '.tpl.html', "utf-8");
+      }
       var footer = fs.readFileSync("./src/templates/footer.html", "utf-8");
-      return function () {
+      return function() {
         return header + content + footer;
       }
     })(i),
@@ -92,7 +99,7 @@ module.exports = {
       loader: 'json'
     }, {
       test: /\.(html|tpl)$/,
-      loader:"ngtemplate!html"
+      loader: "ngtemplate!html"
     }]
   },
   resolve: {

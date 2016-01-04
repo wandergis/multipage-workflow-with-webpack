@@ -1,31 +1,13 @@
 {
-  "name": "multipage-workflow-with-webpack",
-  "version": "0.1.0",
-  "description": "develop multipage  with webpack",
+  "name": "dwuliu",
+  "version": "1.0.0",
+  "description": "dwuliu",
   "main": "server.js",
   "scripts": {
-    "start": "webpack",
-    "dev": "node server.js",
-    "build": "webpack -p"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wandergis/multipage-workflow-with-webpack.git"
-  },
-  "keywords": [
-    "multipage",
-    "webpack",
-    "workflow",
-    "bootstrap",
-    "angular",
-    "jquery"
-  ],
-  "author": "wandergis",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wandergis/multipage-workflow-with-webpack/issues"
-  },
-  "homepage": "https://github.com/wandergis/multipage-workflow-with-webpack#readme",
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "blueimp-tmpl": "^3.1.0",
     "blueimp-tmpl-loader": "0.0.3",

@@ -1,18 +1,18 @@
 /**
  * Created by WangMing on 15/12/29.
  */
-require('./index.css');
-require('../assets/libs/layer/skin/layer.css');
-require('../assets/libs/laypage/skin/laypage.css');
-require('../assets/libs/cityPicker/pikaddress.css');
-require('../../node_modules/bootstrap/dist/css/bootstrap.css');
-require('../../node_modules/bootstrap/dist/js/bootstrap.js');
-require('./images/newpoi.png');
-require('./images/poi2.png');
-var layer = require('../assets/libs/layer/layer');
-var laypage = require('../assets/libs/laypage/laypage');
-var AAPcdPicker = require('../assets/libs/cityPicker/pikaddress');
-var districs = require('../assets/libs/cityPicker/distric.json');
+require('./assets/css/index.css');
+require('../../libs/layer/skin/layer.css');
+require('../../libs/laypage/skin/laypage.css');
+require('../../libs/cityPicker/pikaddress.css');
+require('../../../node_modules/bootstrap/dist/css/bootstrap.css');
+require('../../../node_modules/bootstrap/dist/js/bootstrap.js');
+require('./assets/images/newpoi.png');
+require('./assets/images/poi2.png');
+var layer = require('../../libs/layer/layer');
+var laypage = require('../../libs/laypage/laypage');
+var AAPcdPicker = require('../../libs/cityPicker/pikaddress');
+var districs = require('../../libs/cityPicker/distric.json');
 var app = angular.module('app', []);
 angular.module('app', []);
 require('./controllers/index.controller');
@@ -75,6 +75,3 @@ $(function() {
     }
   });
 });
-if (module.hot) {
-  module.hot.accept();
-}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>webpack多页面应用</title>
+    
+    
+    <link href="goods.build.css?c4123d23d799df5c9bb5" rel="stylesheet">
+    
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!--[if IE 8]>
+    <script src="//cdn.bootcss.com/es5-shim/4.4.1/es5-shim.min.js"></script>
+    <script src="//cdn.bootcss.com/es5-shim/4.4.1/es5-sham.min.js"></script>
+    <script>
+        // Console-polyfill. MIT license.
+        // https://github.com/paulmillr/console-polyfill
+        // Make it safe to do console.log() always.
+        (function(global) {
+            'use strict';
+            global.console = global.console || {};
+            var con = global.console;
+            var prop, method;
+            var empty = {};
+            var dummy = function() {};
+            var properties = 'memory'.split(',');
+            var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+            'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+            'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+            while (prop = properties.pop()) if (!con[prop]) con[prop] = empty;
+            while (method = methods.pop()) if (typeof con[method] !== 'function') con[method] = dummy;
+            // Using `this` for web workers & supports Browserify / Webpack.
+        })(typeof window === 'undefined' ? this : window);
+    </script>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/json3/3.3.2/json3.min.js"></script>
+    <script src="//cdn.bootcss.com/modernizr/2.6.2/modernizr.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div>这是货源列表</div>
+<script src="js/vendors.js?c4123d23d799df5c9bb5"></script>
+
+<script src="js/goods.build.js?c4123d23d799df5c9bb5"></script>
+
+</body>
+</html>
