@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>webpack多页面应用</title>
+    <title>Webpack App</title>
     
     
-    <link href="index.build.css?c4123d23d799df5c9bb5" rel="stylesheet">
+    <link href="index.build.css?f0c1bea1339dfc6357af" rel="stylesheet">
     
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -41,34 +41,19 @@
 </head>
 <body>
 <div ng-app="app">
-    <div ng-controller="MainController as app">
-        <div>{{app.test}}xhksjhxksj</div>
+    <div ng-controller="MainCtrl as app">
+        <div ng-cloak="">{{app.test}}</div>
+        <input type="text" id="username" ng-model="app.test" placeholder="请输入用户名">
     </div>
-    <input type="text" id="input1" placeholder="hahahahahahah"/>
-    <h2 style="margin:10px 0;">信息流</h2>
-    <div id="view8" style="padding-top:10px; text-align:center;"></div>
-    <div id="page11" class="demoflow" style="margin-bottom:10px; text-align:center;">加载更多</div>
-    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    <!-- Single button -->
-    <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-            Action <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
-    </div>
-    <img src="images/newpoi.png?c4123d23d799df5c9bb5" alt="">
-    <img src="images/poi2.png?c4123d23d799df5c9bb5" alt="">
+    <!--图片引用规则-->
+    <img src="images/newpoi.png?f0c1bea1339dfc6357af" alt="">
 </div>
-<script src="js/vendors.js?c4123d23d799df5c9bb5"></script>
+<div class="test">测试</div>
+<input type="text" id="begincity">
 
-<script src="js/index.build.js?c4123d23d799df5c9bb5"></script>
+<script src="js/vendors.js?f0c1bea1339dfc6357af"></script>
+
+<script src="js/index.build.js?f0c1bea1339dfc6357af"></script>
 
 </body>
 </html>

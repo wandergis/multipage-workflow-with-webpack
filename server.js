@@ -4,7 +4,7 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
-for(key in config.entry){
+for (key in config.entry) {
   config.entry[key].unshift('webpack-dev-server/client?http://0.0.0.0:8090', "webpack/hot/dev-server");
 }
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -21,7 +21,7 @@ var app = new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: false,
   historyApiFallback: true,
-  proxy:proxy
+  proxy: proxy
 });
 app.listen(8090, function(err, result) {
   if (err) {

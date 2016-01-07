@@ -57,10 +57,18 @@ for (var i in entries) {
         xmlMode: false,
         decodeEntities: false
       });
+      var reqstr = "//内容页的图片资源引入\n";
       $('img').each(function(i) {
         var imgsrc = $(this).attr("src").substring($(this).attr("src").lastIndexOf('/') + 1);
-        $(this).attr("src", "{%=o.webpack.publicPath+'images/" + imgsrc + "?'+o.webpack.hash %}")
+        var imgsrc = $(this).attr("src").substring($(this).attr("src").lastIndexOf('/') + 1);
+        reqstr = reqstr + "require('./assets/images/" + imgsrc + "');\n";
+        $(this).attr("src", "{%=o.webpack.publicPath+'images/" + imgsrc + "?'+o.webpack.hash %}");
       });
+      reqstr = reqstr + "//引入结束\n";
+      if (fs.existsSync('./src/pages/' + i + '/' + i + '.entry.js')) {
+        var entrycontent = fs.readFileSync('./src/pages/' + i + '/' + i + '.entry.js', "utf-8");
+        fs.writeFileSync('./src/pages/' + i + '/' + i + '.entry.js', reqstr + entrycontent);
+      }
       return function() {
         return $.html();
       }
