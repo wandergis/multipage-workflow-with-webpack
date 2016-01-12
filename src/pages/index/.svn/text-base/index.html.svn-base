@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>主页</title>
+    <link rel="stylesheet" type="text/css" href="../../common/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../common/css/common.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    <style type="text/css">
+        .banner {
+            position: relative;
+            overflow: auto;
+        }
+
+        .banner .bann-li li {
+            float: left;
+        }
+
+        input, textarea {
+            color: #000;
+        }
+
+        .placeholder {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrap">
+    <div class="nav">
+        <div class="nav-top">
+            <div class="nav-top-cont">
+                <a href="#">登录</a>
+            </div>
+        </div>
+        <div class="nav-wrap">
+            <h1 class="logo"><a href="#"><img src="http://s.abwuliu.com/images_index/1_01.png"/></a></h1>
+            <ul class="nav-list">
+                <li class="current"><a href="#">首页</a></li>
+                <li>
+                    <a href="#">货源信息</a>
+                    <p class="nav-bottom dis-none">
+                        <i></i>
+                        <a href="#">车源列表</a>
+                        <a href="#">我发的车</a>
+                        <a href="#">我定的车</a>
+                    </p>
+                </li>
+                <li>
+                    <a href="#">车源信息</a>
+                    <p class="nav-bottom dis-none">
+                        <i></i>
+                        <a href="#">车源列表</a>
+                        <a href="#">我发的车</a>
+                        <a href="#">我定的车</a>
+                    </p>
+                </li>
+                <li>
+                    <a href="#">产品信息</a>
+                </li>
+                <li>
+                    <a href="#">商务合作</a>
+                    <p class="nav-bottom dis-none">
+                        <i></i>
+                        <a href="#">车源列表</a>
+                        <a href="#">我发的车</a>
+                        <a href="#">我定的车</a>
+                    </p>
+                </li>
+                <li>
+                    <a href="#">关于我们</a>
+                    <p class="nav-bottom dis-none">
+                        <i></i>
+                        <a href="#">车源列表</a>
+                        <a href="#">我发的车</a>
+                        <a href="#">我定的车</a>
+                    </p>
+                </li>
+            </ul>
+			<span class="tel">
+				<img src="http://s.abwuliu.com/images_index/1_02.png"/>
+			</span>
+        </div>
+    </div>
+    <!-- 轮播图开始 -->
+    <div class="banner-wrap">
+        <!-- 轮播图 -->
+        <div class="banner">
+            <ul>
+                <li><a href="#" class="d1"
+                       style="background:url(http://s.abwuliu.com/images_index/1.jpg) center no-repeat;"></a></li>
+                <li><a href="#" class="d1"
+                       style="background:url(http://s.abwuliu.com/images_index/2.jpg) center no-repeat;"></a></li>
+                <li><a href="#" class="d1"
+                       style="background:url(http://s.abwuliu.com/images_index/3.jpg) center no-repeat;"></a></li>
+                <li><a href="#" class="d1"
+                       style="background:url(http://s.abwuliu.com/images_index/4.jpg) center no-repeat;"></a></li>
+            </ul>
+        </div>
+        <!-- 发布信息 -->
+        <div class="send-wrap">
+            <div class="send-info">
+                <ul class="info-list">
+                    <li id="one1"><a href="javascript:;"><img
+                            src="http://s.abwuliu.com/images_index/1_03.png"/></a></li>
+                    <li class="cur" id="one2"><a href="javascript:;"><img
+                            src="http://s.abwuliu.com/images_index/1_04.png"/></a></li>
+                </ul>
+                <!-- 发布货源 -->
+                <div class="info-wrap" style="display:none;">
+                    <ul class="info-wrap-goods">
+                        <li>
+                            <span class="title"><span>*</span>出发城市</span>
+                            <input readonly="readonly" UNSELECTABLE='on' autocomplete="off" class="add_input"
+                                   id="begincity" name="begincity" type="text" value="" placeholder="选择省、市、县"
+                                   onkeydown="return false;"/>
+                            <div style="display: none;" class="area-select area-tab"></div>
+                            <input class="dz-input" type="text" id="get_addr" name="get_addr" value=""
+                                   placeholder="详细地址"/>
+                        </li>
+                        <li>
+                            <span class="title"><span>*</span>到达城市</span>
+                            <input readonly="readonly" UNSELECTABLE='on' autocomplete="off" class="add_input"
+                                   id="endcity" name="endcity" type="text" value="" placeholder="选择省、市、县"
+                                   onkeydown="return false;"/>
+                            <div style="display: none;" class="area-select area-tab"></div>
+                            <input class="dz-input" id="put_addr" name="put_addr" type="text" value=""
+                                   placeholder="详细地址"/>
+                        </li>
+                        <li>
+                            <span class="title"><span>*</span>货物类型</span>
+                            <input readonly="readonly" UNSELECTABLE='on' autocomplete="off" class="add_input"
+                                   id="endcity" name="endcity" type="text" value="" placeholder="选择省、市、县"
+                                   onkeydown="return false;"/>
+                            <div style="display: none;" class="area-select area-tab"></div>
+                            <input class="dz-input"  name="" type="text" value=""
+                                   placeholder="补充货物名称、重量、体积等信息"/>
+                        </li>
+                        <li>
+                            <span class="title">收货人电话</span>
+                            <input type="text" value="" id="endmobile" name="endmobile" placeholder="请输入收货人电话"/>
+                        </li>
+                        <div class="mobileno error"></div>
+                        <li><a href="javascript:;" class="btnLogin">快速发布</a><a href="javascript:;" class="refresh">详细发布>></a>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <!-- 发布车源 -->
+                <div class="info-wrap">
+                    <ul class="info-wrap-cars">
+                        <li>
+                            <span class="title"><span>*</span>出发城市</span>
+                            <input readonly="readonly" UNSELECTABLE='on' autocomplete="off" class="add_input"
+                                   id="begincity" name="begincity" type="text" value="" placeholder="选择省、市、县"
+                                   onkeydown="return false;"/>
+                            <div style="display: none;" class="area-select area-tab"></div>
+                            <span class="title"><span>*</span>到达城市</span>
+                            <input readonly="readonly" UNSELECTABLE='on' autocomplete="off" class="add_input"
+                                   id="endcity" name="endcity" type="text" value="" placeholder="选择省、市、县"
+                                   onkeydown="return false;"/>
+                            <div style="display: none;" class="area-select area-tab"></div>
+                        </li>
+                        <li>
+                            <span class="title"><span>*</span>重量/体积</span>
+                            <input readonly="readonly" UNSELECTABLE='on' autocomplete="off" class="add_input"
+                                   id="endcity" name="endcity" type="text" value="" placeholder="选择省、市、县"
+                                   onkeydown="return false;"/>
+                            <div style="display: none;" class="area-select area-tab"></div>
+                            <input class="dz-input" name="" type="text" value=""
+                                   placeholder="详细地址"/>
+                        </li>
+                        <li>
+                            <span class="title"><span>*</span>车类型</span>
+                            <input readonly="readonly" UNSELECTABLE='on' autocomplete="off" class="add_input"
+                                   id="endcity" name="endcity" type="text" value="" placeholder="选择省、市、县"
+                                   onkeydown="return false;"/>
+                            <div style="display: none;" class="area-select area-tab"></div>
+                            <input class="dz-input" name="" type="text" value=""
+                                   placeholder="补充货物名称、重量、体积等信息"/>
+                        </li>
+                        <li>
+                            <span class="title"><span>*</span>发车电话</span>
+                            <input type="text" value="" id="endmobile" name="endmobile" placeholder="请输入收货人电话"/>
+                            <span class="title"><span>*</span>发车时间</span>
+                            <input type="text" value="" id="endmobile" name="endmobile" placeholder="请选择日期"/>
+                        </li>
+                        <li><a href="javascript:;" class="btnLogin">快速发布</a><a href="javascript:;" class="refresh">详细发布>></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 轮播图结束 -->
+    <!-- 主要内容区域 -->
+    <div class="main-cont">
+        <div class="cont1">
+            <div class="cont-title"></div>
+            <div class="cont1-info"></div>
+        </div>
+        <div class="cont2">
+            <div class="cont-title"></div>
+            <div class="cont2-info"></div>
+        </div>
+        <div class="cont3">
+            <div class="cont-title"></div>
+            <div class="cont3-info"></div>
+        </div>
+    </div>
+    <!-- footer部分 -->
+    <div class="footer">
+        <div class="footer-wrap">
+            <div class="footer-left">
+                <p class="footer-title">友情链接：</p>
+                <ul>
+                    <li><a href="#">第一物流</a></li>
+                    <li><a href="#">优化站</a></li>
+                    <li><a href="#">优化站</a></li>
+                    <li><a href="#">第一物流APP</a></li>
+                    <li><a href="#">58同城合作站</a></li>
+                    <li><a href="#">58同城合作站</a></li>
+                    <li><a href="#">中国第一物流</a></li>
+                    <li><a href="#">第一物流贴吧</a></li>
+                    <li><a href="#">第一物流贴吧</a></li>
+                    <li><a href="#">山西天眼</a></li>
+                    <li><a href="#">优化站</a></li>
+                    <li><a href="#">优化站</a></li>
+                    <li><a href="#">企业微博</a></li>
+                    <li><a href="#">58同城合作站</a></li>
+                    <li><a href="#">58同城合作站</a></li>
+                    <li><a href="#">信息站</a></li>
+                    <li><a href="#">第一物流贴吧</a></li>
+                    <li><a href="#">第一物流贴吧</a></li>
+                </ul>
+            </div>
+            <div class="footer-mid">
+                <p class="footer-title">运力宝（北京）科技有限公司</p>
+                <p class="company-info mb20">运力宝（北京）科技有限公司是中国第一物流控股（香港）有限公司在中国大陆设立的港资独资企业，成立于2014年，公司具有雄厚的资金实力。</p>
+                <p class="company-info">第一物流是运力宝（北京）科技有限公司推出的核心品牌，是基于互联网和移动互联网技术构建的物流电商平台；平台利用IT技术和大数据运用，整合共享优质的运力资源，搭建完善的线下承运体系，为托运人，承运人提供信息共享，运力匹配，货物承运等供应链管理服务，以打造“安全，便捷，高效”的物流平台为使命，致力于创建一个连接货主、专线、三方、车主、司机为一体的平台化互联网公司。</p>
+            </div>
+            <div class="footer-right">
+                <p class="footer-title">产品中心｜ 商务合作 ｜ 联系我们 ｜ 加入我们</p>
+                <div class="logo-code">
+                    <div class="comp-logo"><img src="assets/images/logo_.png" height="100" width="90" alt=""></div>
+                    <div class="wx-code">
+                        <img src="assets/images/wx-code.jpg" height="94" width="94" alt="">
+                        <p>扫码关注官方微信</p>
+                    </div>
+                    <p class="number-phone">
+                        <span><img src="assets/images/compNum.png" height="15" width="125" alt=""></span>
+                        <span><img src="assets/images/comNum.png" alt=""></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="copy-text">Copyright © 2012-2015 中国第一物流 版权所有 Power by www.dwuliu.com  ( ICP备14059919号-1号 )</div>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../libs/layer/layer.js"></script>
+<script src="http://cdn.bootcss.com/jquery-placeholder/2.3.1/jquery.placeholder.min.js"></script>
+<script>
+    $(function () {
+        $(".nav-list li").hover(function (event) {
+            $(this).children('p').removeClass('dis-none');
+        },function (event) {
+            $(this).children('p').addClass('dis-none');
+        });
+        $('input, textarea').placeholder();
+        //页面层-自定义
+        layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            shadeClose: true,
+            skin: 'yourclass',
+            content: ''
+        });
+    });
+</script>
+</body>
+</html>

@@ -100,8 +100,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(4);
-	__webpack_require__(16);
-	module.exports = __webpack_require__(18);
+	__webpack_require__(21);
+	module.exports = __webpack_require__(23);
 
 
 /***/ },
@@ -10421,16 +10421,16 @@
 
 /***/ },
 
-/***/ 16:
+/***/ 21:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(17);
+	__webpack_require__(22);
 	module.exports = angular;
 
 
 /***/ },
 
-/***/ 17:
+/***/ 22:
 /***/ function(module, exports, __webpack_require__) {
 
 	var require;/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/**
@@ -32606,7 +32606,7 @@
 
 /***/ },
 
-/***/ 18:
+/***/ 23:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! http://mths.be/placeholder v2.1.1 by @mathias */

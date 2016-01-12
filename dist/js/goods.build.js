@@ -9,8 +9,6 @@ webpackJsonp([0],[
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	//内容页的图片资源引入
-	//引入结束
 	/**
 	 * Created by WangMing on 15/12/29.
 	 */

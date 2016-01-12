@@ -19,24 +19,26 @@ webpackJsonp([1],[
 	 */
 	//引入样式重置文件
 	__webpack_require__(6);
-	//引入插件的css
 	__webpack_require__(7);
+	//引入插件的css
 	__webpack_require__(8);
 	__webpack_require__(9);
+	__webpack_require__(10);
 	//引入插件
-	var layer = __webpack_require__(10); //弹窗插件
-	var laypage = __webpack_require__(11); //分页插件
-	var AAPcdPicker = __webpack_require__(12); //省市区选择插件
-	var districs = __webpack_require__(13); //省市区文件
+	var layer = __webpack_require__(11);//弹窗插件
+	var laypage = __webpack_require__(12);//分页插件
+	var AAPcdPicker = __webpack_require__(13);//省市区选择插件
+	var districs = __webpack_require__(14);//省市区文件
 
 	//引入自定义样式
-	__webpack_require__(14);
+	__webpack_require__(15);
 
 	//引入angular的模块
-	__webpack_require__(15);
-	//angular主模块
-	angular.module('app', ['main']);
 
+	__webpack_require__(16);
+	__webpack_require__(18);
+	__webpack_require__(19);
+	angular.module('app',['main']);
 	//ie8等不支持placeholder的封装
 	$('input, textarea').placeholder();
 
@@ -44,23 +46,36 @@ webpackJsonp([1],[
 	  field: document.getElementById('begincity'),
 	  districtsData: districs,
 	  districtsOften: ["北京市-北京市", "江苏省-南京市", "天津市-天津市", "江苏省-常州市"],
-	  onSelectDone: function() {
+	  onSelectDone: function () {
 	    $('#begincity').val(begincity._o.district);
 	    begincity.hide();
 	  }
 	});
+	//页面层-自定义
+	layer.open({
+	  type: 1,
+	  title: false,
+	  closeBtn: 1,
+	  shadeClose: true,
+	  area: ['400px'],
+	  skin: 'yourclass',
+	  //content:require('./index.html') //'<div ng-controller="LoginController as app">{{app.test}}<login-form></login-form></div>'
+	  content:__webpack_require__(20) //'<div ng-controller="LoginController as app">{{app.test}}<login-form></login-form></div>'
+	});
 	$.ajax({
 	  type: "GET",
-	  url: "/openapi2/getregister/",
+	  url: "/api_function/getregister.php",
 	  data: {},
 	  dataType: "json",
-	  success: function(data) {
-	    alert(JSON.stringify(data));
+	  success: function (data) {
+	    console.log(JSON.stringify(data));
 	  },
-	  error: function(err) {
+	  error: function (err) {
 
 	  }
 	});
+
+
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
@@ -96,6 +111,12 @@ webpackJsonp([1],[
 
 /***/ },
 /* 10 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(jQuery) {/*! layer-v2.1 弹层组件 License LGPL  http://layer.layui.com/ By 贤心 */
@@ -103,7 +124,7 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*! layPage-v1.3.0 分页组件 License MIT  http://laypage.layui.com/ By 贤心 */
@@ -162,7 +183,7 @@ webpackJsonp([1],[
 	}();
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**
@@ -622,7 +643,7 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -5696,22 +5717,85 @@ webpackJsonp([1],[
 	];
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 15 */
-/***/ function(module, exports) {
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
-	 * Created by WangMing on 15/12/30.
+	 * Created by WangMing on 16/1/11.
 	 */
-	angular.module('main', [])
-		.controller('MainCtrl', [function() {
-			this.test = "你好！";
-		}]);
+	var main=__webpack_require__(17);
+	main.directive('loginForm', function () {
+	  return {
+	    restrict: 'AE',
+	    template:"<div style='height: 500px;'><label for='username'>用户名:</label><input type='text' name='username' placeholder='请输入用户名'><label for='password'>密码:</label><input  type='password' name='password' placeholder='请输入密码'></div>"
+	  }
+	});
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	module.exports=angular.module('main', []);
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by WangMing on 16/1/11.
+	 */
+	doAjax.$inject = ["$http", "$q"];
+	var main = __webpack_require__(17);
+	main.factory('doAjax', doAjax);
+
+	function doAjax($http, $q) {
+	  return {
+	    query: function(mobileno) {
+	      var deferred = $q.defer();
+	      $http.jsonp("openapi/getUserFriends", {
+	          method: "GET",
+	          params: {
+	            callback: "JSON_CALLBACK",
+	            mobileno: mobileno
+	          }
+	        })
+	        .success(function(data, status, headers, config) {
+	          deferred.resolve(data);
+	        })
+	        .error(function(data, status, headers, config) {
+	          deferred.reject(data);
+	        });
+	      return deferred.promise;
+	    }
+	  }
+	}
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by WangMing on 16/1/11.
+	 */
+	LoginController.$inject = ["doAjax"];
+	var main = __webpack_require__(17);
+	main.controller('LoginController', LoginController);
+
+	function LoginController(doAjax) {
+	    this.test = "你好!";
+	}
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"login-wrap\">\r\n\t<p class=\"login-title\"><span>用户登录</span></p>\r\n\t<p class=\"phone-num\"><input type=\"text\" name=\"\" value=\"\" placeholder=\"请输入手机号码\"></p>\r\n\t<p class=\"pic-code\"><input type=\"text\" name=\"\" value=\"\" placeholder=\"请输入图形验证码\"><span><img src=\"http://192.168.1.6:8084/apilib/code.php\" alt=\"验证码\"></span></p>\r\n\t<p class=\"phone-code\"><input type=\"text\" name=\"\" value=\"\" placeholder=\"请输入手机验证码\"><span>获取验证码</span></p>\r\n\t<p class=\"login-warn\"><a href=\"#\">我有一头小毛驴</a></p>\r\n\t<p class=\"login-btn\"><button>登录</button></p>\r\n</div>";
 
 /***/ }
 ]);

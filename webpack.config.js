@@ -2,7 +2,7 @@
  * Created by WangMing on 15/12/29.
  */
 var path = require('path');
-var os = require('os');
+var os=require('os');
 var fs = require('fs');
 var cheerio = require('cheerio');
 var webpack = require("webpack");
@@ -36,7 +36,8 @@ for (var i = 0; i < entryFiles.length; i++) {
   var filePath = entryFiles[i];
   if (os.platform() === 'win32') {
     key = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.entry'));
-  } else {
+  }
+  else {
     key = filePath.substring(filePath.lastIndexOf(path.sep) + 1, filePath.lastIndexOf('.entry'));
   }
   entries[key] = [path.join(__dirname, filePath)];
@@ -45,23 +46,30 @@ for (var i in entries) {
   plugins.push(new HtmlWebpackPlugin({
     title: "",
     //template: 'src/' + i + '/' + i + '.tpl.html',
-    templateContent: (function(i) {
+    templateContent: (function (i) {
       var header = fs.readFileSync("./src/templates/header.html", "utf-8");
       if (fs.existsSync('./src/pages/' + i + '/' + i + '.tpl.html')) {
         var content = fs.readFileSync('./src/pages/' + i + '/' + i + '.tpl.html', "utf-8");
       }
       var footer = fs.readFileSync("./src/templates/footer.html", "utf-8");
-      var htmlcontent = header + content + footer;
-      var $ = cheerio.load(htmlcontent, {
+      var htmlcontent=header + content + footer;
+      var $ = cheerio.load(htmlcontent,{
         normalizeWhitespace: false,
         xmlMode: false,
         decodeEntities: false
       });
-      $('img').each(function(i) {
-        var imgsrc = $(this).attr("src").substring($(this).attr("src").lastIndexOf('/') + 1);
-        $(this).attr("src", "{%=o.webpack.publicPath+'images/" + imgsrc + "?'+o.webpack.hash %}")
+      $('img').each(function (i) {
+        var str=$(this).attr("src");
+        if(!str){
+          return;
+        }
+        var imgsrc=str.substring($(this).attr("src").lastIndexOf('/')+1);
+        if(imgsrc.split('.')[1]==='php'){
+          return;
+        }
+        $(this).attr("src","{%=o.webpack.publicPath+'images/"+imgsrc+"?'+o.webpack.hash %}");
       });
-      return function() {
+      return function () {
         return $.html();
       }
     })(i),
@@ -110,7 +118,7 @@ module.exports = {
       loader: 'json'
     }, {
       test: /\.(html|tpl)$/,
-      loader: "ngtemplate!html"
+      loader: "html"//ngtemplate!
     }]
   },
   resolve: {

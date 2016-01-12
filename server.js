@@ -12,7 +12,7 @@ config.plugins.push(new webpack.NoErrorsPlugin());
 //http://192.168.1.6/openapi2/getregister/
 // 相当于通过本地node服务代理请求
 var proxy = [{
-  path: "/openapi2/*",
+  path: "/openapi/*",
   target: "http://192.168.1.6",
   host: "192.168.1.6"
 }];

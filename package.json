@@ -34,9 +34,9 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
-    "angular": "^1.2.29",
+    "angular": "1.2.29",
     "bootstrap": "^3.3.6",
-    "jquery": "^1.11.1",
+    "jquery": "1.11.1",
     "jquery-placeholder": "^2.1.1"
   }
 }
