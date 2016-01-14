@@ -14,3 +14,10 @@
 ## 使用方法
 1. 开发模式，不生成dist目录 支持热替换和自动刷新`node server.js`
 2. 部署打包 `webpack`或`webpack -p` 
+
+## 参考与感谢
+
+[基于gulp+webpack的"约定大于配置"的构建方案探讨](http://segmentfault.com/a/1190000003904552)
+
+[基于gulp+webpack的"约定大于配置"的构建方案探讨 2](http://segmentfault.com/a/1190000003952477)
+
