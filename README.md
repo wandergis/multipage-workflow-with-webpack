@@ -1,6 +1,6 @@
 # multipage-workflow-with-webpack
 一个多页面下的webpack开发前端工作流
-
+## 给html-webpack-plugin提的issue有了好的反馈，项目结构更新至更优，支持修改任意文件实时预览，等项目结束之后再整理上传，*此版本暂时不用了* 
 ## 目标
 1. 资源自动引入
 2. 页面拆分与合并 
